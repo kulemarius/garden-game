@@ -21,7 +21,8 @@ func _process(_delta):
 	
 	color_rect.color = day_color.lerp(night_color, progress)
 	
-	stars.modulate.a = progress
+	var star_progress = clamp((progress - 0.3) / 0.7, 0.0, 1.0)
+	stars.modulate.a = star_progress
 
 func _on_timer_timeout():
 	get_tree().reload_current_scene()
