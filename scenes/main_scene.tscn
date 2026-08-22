@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnehsoes3ata4"]
 
 [ext_resource type="Script" uid="uid://d20oflrg0jyya" path="res://scripts/main/player_movement.gd" id="1_pw63i"]
+[ext_resource type="Script" uid="uid://dbv3uemuctrhp" path="res://scripts/main/day_handler.gd" id="1_r6p65"]
 [ext_resource type="Texture2D" uid="uid://blb8i0ia7vbua" path="res://sprites/characters/player_spritesheet.png" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://dwfjvljkk27ow" path="res://sprites/tiles/grass_tilemap.png" id="3_7ykc4"]
 [ext_resource type="Texture2D" uid="uid://daox3r55rou7" path="res://sprites/env/cloud.png" id="4_pu3yx"]
@@ -125,6 +126,7 @@ shader_parameter/pixel_size = 1.50000002375
 size = Vector2(36, 872)
 
 [node name="MainScene" type="Node2D" unique_id=58606181]
+script = ExtResource("1_r6p65")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=721381934]
 position = Vector2(354, 332)
@@ -263,10 +265,14 @@ offset_right = 45.5
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = -120
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 13
 theme_override_fonts/font = ExtResource("13_4w45t")
-theme_override_font_sizes/font_size = 107
-text = "119"
+theme_override_font_sizes/font_size = 83
+text = "119.99"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DayTimer" type="Timer" parent="." unique_id=1439161362]
+wait_time = 120.0
+autostart = true
