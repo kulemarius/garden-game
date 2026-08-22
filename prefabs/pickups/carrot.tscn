@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c7f41npbyqorm"]
+
+[ext_resource type="Texture2D" uid="uid://66lqh8y2wqxl" path="res://sprites/items/carrot_spritesheet.png" id="1_0l7le"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmqkr"]
+atlas = ExtResource("1_0l7le")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmqkr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Carrot" type="Node2D" unique_id=1540769784 groups=["Pickup"]]
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1472075866]
+sprite_frames = SubResource("SpriteFrames_3xd07")
+autoplay = "default"

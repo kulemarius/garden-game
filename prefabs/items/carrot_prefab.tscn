@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://66lqh8y2wqxl" path="res://sprites/items/carrot_spritesheet.png" id="1_lq47w"]
 [ext_resource type="Script" uid="uid://bs4dqvk8rt72k" path="res://scripts/items/grow_handler.gd" id="1_xxfnv"]
+[ext_resource type="PackedScene" uid="uid://c7f41npbyqorm" path="res://prefabs/pickups/carrot.tscn" id="2_epore"]
+[ext_resource type="Texture2D" uid="uid://dfapq5u727yy4" path="res://sprites/env/arrow.png" id="3_v0ufq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxfnv"]
 atlas = ExtResource("1_lq47w")
@@ -78,14 +80,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 19.669493
+
 [node name="CarrotPrefab" type="Node2D" unique_id=1194123282]
 scale = Vector2(3, 3)
 script = ExtResource("1_xxfnv")
+pickup_scene = ExtResource("2_epore")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96773227]
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_3xd07")
-animation = &"Stage1"
+animation = &"FinalStage"
 autoplay = "Stage1"
 
 [node name="Timer" type="Timer" parent="." unique_id=474560783]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1765098256]
+visible = false
+position = Vector2(0, -13.666667)
+texture = ExtResource("3_v0ufq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1905876807]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1464454089]
+shape = SubResource("CircleShape2D_3xd07")
