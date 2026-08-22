@@ -4,8 +4,7 @@ extends Node2D
 @export var pickup_scene: PackedScene
 
 @onready var sprite = $AnimatedSprite2D
-@onready var grow_timer = $Timer
-@onready var arrowSprite = $Sprite2D
+@onready var grow_timer = $GrowTimer
 
 var current_stage := 1
 var can_harvest := false
@@ -16,8 +15,6 @@ func _ready():
 
 	sprite.play("Stage1")
 	grow_timer.start(grow_time)
-	
-	arrowSprite.visible = false
 
 func _on_grow_timer_timeout():
 	current_stage += 1
@@ -29,7 +26,6 @@ func _on_grow_timer_timeout():
 		grow_timer.start(grow_time)
 	else:
 		sprite.play("FinalStage")
-		arrowSprite.visible = true
 		can_harvest = true
 
 func harvest():

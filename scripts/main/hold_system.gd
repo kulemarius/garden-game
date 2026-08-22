@@ -1,11 +1,9 @@
 extends Node
 
-@onready var player = $"../Player"
 @onready var hand = $"../Player/Hand"
 @onready var pickup_area = $"../Player/PickupArea"
 
 var equippedItem = null
-var canDrop = true
 var nearbyItem = null
 
 func _ready():
@@ -27,40 +25,53 @@ func _process(delta):
 
 func _on_pickup_area_entered(area):
 	if area.is_in_group("Plant"):
-		nearbyItem = area
-		return
-
-	if area.is_in_group("Pickup"):
+		nearbyItem = area.get_parent()
+	elif area.is_in_group("Pickup"):
 		nearbyItem = area
 
 func _on_pickup_area_exited(area):
-	if area == nearbyItem:
-		nearbyItem = null
+	if area.is_in_group("Plant"):
+		if area.get_parent() == nearbyItem:
+			nearbyItem = null
+
+	elif area.is_in_group("Pickup"):
+		if area == nearbyItem:
+			nearbyItem = null
 
 func pickup():
 	if equippedItem:
 		return
 
-	if not nearbyItem:
-		return
+	var areas = pickup_area.get_overlapping_areas()
 
-	if nearbyItem.is_in_group("Plant"):
-		var pickup = nearbyItem.harvest()
+	for area in areas:
+		if area.is_in_group("Plant"):
+			var plant = area.get_parent()
 
-		if pickup:
-			equippedItem = pickup
+			if plant.has_method("harvest"):
+				var pickup_item = plant.harvest()
 
-		return
+				if pickup_item:
+					equippedItem = pickup_item
+					nearbyItem = null
 
-	if nearbyItem.is_in_group("Pickup"):
-		equippedItem = nearbyItem
+				return
+
+		if area.is_in_group("Pickup"):
+			equippedItem = area
+			nearbyItem = null
+			return
 
 func drop():
-	if not equippedItem or not canDrop:
+	if not equippedItem:
 		return
 
-	equippedItem.global_position = hand.global_position
+	var item = equippedItem
+
 	equippedItem = null
+	nearbyItem = null
+
+	item.global_position = hand.global_position
 
 func plant():
 	if not equippedItem:
@@ -72,12 +83,12 @@ func plant():
 	if equippedItem.plant_scene == null:
 		return
 
-	var plant_position = equippedItem.global_position
 	var plant_scene = equippedItem.plant_scene
+	var plant_position = equippedItem.global_position
 
 	equippedItem.queue_free()
 	equippedItem = null
 
-	var plant = plant_scene.instantiate()
-	get_tree().current_scene.add_child(plant)
-	plant.global_position = plant_position
+	var new_plant = plant_scene.instantiate()
+	get_tree().current_scene.add_child(new_plant)
+	new_plant.global_position = plant_position
