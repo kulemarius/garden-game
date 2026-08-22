@@ -205,18 +205,18 @@ gravity = Vector2(0, 0)
 scale_amount_max = 8.1
 scale_amount_curve = SubResource("Curve_3xd07")
 
-[node name="PlantsSeller" type="StaticBody2D" parent="." unique_id=1467089720]
+[node name="SellNpc" type="StaticBody2D" parent="." unique_id=1467089720]
 position = Vector2(1065, 413)
 scale = Vector2(4, 4)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlantsSeller" unique_id=570125164]
+[node name="Sprite2D" type="Sprite2D" parent="SellNpc" unique_id=570125164]
 texture = ExtResource("15_01n6w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantsSeller" unique_id=659041557]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SellNpc" unique_id=659041557]
 position = Vector2(0, 11.5)
 shape = SubResource("RectangleShape2D_3xd07")
 
-[node name="Area2D" type="Area2D" parent="PlantsSeller" unique_id=993956893]
+[node name="Area2D" type="Area2D" parent="SellNpc" unique_id=993956893]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantsSeller/Area2D" unique_id=1521085273]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SellNpc/Area2D" unique_id=1521085273]
 shape = SubResource("CircleShape2D_3xd07")
