@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dvxtq7xidfaos" path="res://sprites/env/stars.png" id="15_si52b"]
 [ext_resource type="Texture2D" uid="uid://d18ds1kxtcf5x" path="res://sprites/ui/shop_background.png" id="17_58gk3"]
 [ext_resource type="Script" uid="uid://e8nwlvvjt7ix" path="res://scripts/main/stats_handler.gd" id="18_bcnxi"]
+[ext_resource type="Texture2D" uid="uid://b1fqtycuu2dlq" path="res://sprites/ui/buy_button.png" id="18_k67gn"]
 [ext_resource type="Texture2D" uid="uid://cfgij05ap7mf3" path="res://sprites/ui/buy_sign.png" id="18_to7gp"]
 [ext_resource type="Script" uid="uid://cpng7qxkaed6t" path="res://scripts/ui/close_button.gd" id="19_6p3nn"]
 [ext_resource type="Texture2D" uid="uid://vxf4gqmc2mco" path="res://sprites/ui/exit_button.png" id="19_u0fll"]
@@ -61,6 +62,12 @@ shader_parameter/pixel_size = 1.50000002375
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fhyq"]
 size = Vector2(36, 872)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq8tk"]
+texture = ExtResource("18_k67gn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6fhyq"]
+texture = ExtResource("18_k67gn")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xd07"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -335,6 +342,34 @@ theme_override_constants/outline_size = 11
 theme_override_fonts/font = ExtResource("13_4w45t")
 theme_override_font_sizes/font_size = 27
 text = "10-25$"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Canvas/Shop/Carrot/NinePatchRect" unique_id=54503394]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 5.0
+offset_right = 378.84375
+offset_bottom = 52.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("13_4w45t")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_jq8tk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6fhyq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6fhyq")
+
+[node name="Label" type="Label" parent="Canvas/Shop/Carrot/NinePatchRect/Button" unique_id=990954222]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("13_4w45t")
+theme_override_font_sizes/font_size = 48
+text = "10$"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Icon" type="Sprite2D" parent="Canvas/Shop/Carrot" unique_id=2059321834]
