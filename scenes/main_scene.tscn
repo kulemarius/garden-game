@@ -290,6 +290,7 @@ wait_time = 120.0
 autostart = true
 
 [node name="StarsTilemap" type="TileMap" parent="." unique_id=1185289807]
+modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_jq8tk")

@@ -7,6 +7,7 @@ extends Node
 @onready var label = $Canvas/UI/TimeleftLabel
 @onready var sprite = $Canvas/UI/Clock_Fill
 @onready var color_rect = $Background
+@onready var stars = $StarsTilemap
 
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
@@ -19,6 +20,8 @@ func _process(_delta):
 	sprite.rotation = deg_to_rad(180.0 * progress)
 	
 	color_rect.color = day_color.lerp(night_color, progress)
+	
+	stars.modulate.a = progress
 
 func _on_timer_timeout():
 	get_tree().reload_current_scene()
