@@ -205,10 +205,10 @@ script = ExtResource("7_c16ls")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=874352494]
 material = SubResource("ShaderMaterial_3xd07")
-offset_left = -1484.0
-offset_top = -801.0
-offset_right = -1385.6028
-offset_bottom = -683.3985
+offset_left = -1319.0
+offset_top = -825.0
+offset_right = -1220.6028
+offset_bottom = -707.3985
 scale = Vector2(30.27526, 15.016816)
 
 [node name="COLLISION_WALL" type="StaticBody2D" parent="." unique_id=136481660]
