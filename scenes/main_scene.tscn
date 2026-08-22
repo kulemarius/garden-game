@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://d18ds1kxtcf5x" path="res://sprites/ui/shop_background.png" id="17_58gk3"]
 [ext_resource type="Script" uid="uid://e8nwlvvjt7ix" path="res://scripts/main/stats_handler.gd" id="18_bcnxi"]
 [ext_resource type="Texture2D" uid="uid://cfgij05ap7mf3" path="res://sprites/ui/buy_sign.png" id="18_to7gp"]
+[ext_resource type="Script" uid="uid://cpng7qxkaed6t" path="res://scripts/ui/close_button.gd" id="19_6p3nn"]
+[ext_resource type="Texture2D" uid="uid://vxf4gqmc2mco" path="res://sprites/ui/exit_button.png" id="19_u0fll"]
 [ext_resource type="Texture2D" uid="uid://dabugf1vgetlt" path="res://sprites/characters/buy_npc.png" id="21_xdqt8"]
 [ext_resource type="Script" uid="uid://tds41jr1x4s5" path="res://scripts/main/buy_handler.gd" id="23_to7gp"]
 
@@ -59,6 +61,15 @@ shader_parameter/pixel_size = 1.50000002375
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fhyq"]
 size = Vector2(36, 872)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xd07"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq8tk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fhyq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Curve" id="Curve_3xd07"]
 _data = [Vector2(0, 0.23595512), 0.0, 0.0, 0, 0, Vector2(0.2761905, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5617978), 0.0, 0.0, 0, 0]
@@ -257,7 +268,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Canvas/Shop" unique_id=1581419344]
+[node name="Background" type="MarginContainer" parent="Canvas/Shop" unique_id=1581419344]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -271,7 +282,7 @@ offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Canvas/Shop/MarginContainer" unique_id=212172154]
+[node name="NinePatchRect" type="NinePatchRect" parent="Canvas/Shop/Background" unique_id=212172154]
 layout_mode = 2
 texture = ExtResource("17_58gk3")
 patch_margin_left = 16
@@ -279,11 +290,84 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
+[node name="Carrot" type="MarginContainer" parent="Canvas/Shop" unique_id=1730066713]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -133.0
+offset_right = 194.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Canvas/Shop/Carrot" unique_id=1796553499]
+layout_mode = 2
+texture = ExtResource("17_58gk3")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Name" type="Label" parent="Canvas/Shop/Carrot/NinePatchRect" unique_id=1907732430]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -1.0
+offset_right = 182.0
+offset_bottom = 37.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("13_4w45t")
+theme_override_font_sizes/font_size = 40
+text = "Carrot"
+vertical_alignment = 1
+
+[node name="Name2" type="Label" parent="Canvas/Shop/Carrot/NinePatchRect" unique_id=1267209641]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 22.0
+offset_right = 182.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("13_4w45t")
+theme_override_font_sizes/font_size = 27
+text = "10-25$"
+vertical_alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="Canvas/Shop/Carrot" unique_id=2059321834]
+position = Vector2(27, 29)
+rotation = -0.16159628
+scale = Vector2(4.3, 4.3)
+texture = ExtResource("5_gubc5")
+
 [node name="Title" type="Sprite2D" parent="Canvas/Shop" unique_id=1255513167]
 position = Vector2(427.99994, 128.99998)
 rotation = -0.10107115
 scale = Vector2(5.625, 5.625)
 texture = ExtResource("18_to7gp")
+
+[node name="Button" type="Button" parent="Canvas/Shop" unique_id=411374794 node_paths=PackedStringArray("control_to_hide")]
+z_index = 1
+layout_mode = 0
+offset_left = 751.00006
+offset_top = 96.0
+offset_right = 810.00006
+offset_bottom = 155.0
+rotation = 0.18311082
+theme_override_styles/normal = SubResource("StyleBoxFlat_3xd07")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jq8tk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6fhyq")
+script = ExtResource("19_6p3nn")
+control_to_hide = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="Canvas/Shop/Button" unique_id=1636592316]
+position = Vector2(28.00002, 27)
+scale = Vector2(3.6764708, 3.6764705)
+texture = ExtResource("19_u0fll")
+flip_h = true
 
 [node name="DayTimer" type="Timer" parent="." unique_id=1439161362]
 wait_time = 120.0
