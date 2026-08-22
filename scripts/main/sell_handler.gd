@@ -1,7 +1,6 @@
-extends StaticBody2D
+extends Area2D
 
-@onready var area2d = $Area2D
-@onready var hold_system = $"../ItemHandler"
+@onready var hold_system = $"../../ItemHandler"
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Sell"):
