@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://hilsymfhxyfg" path="res://sprites/ui/clock_fill.png" id="12_mngbo"]
 [ext_resource type="Texture2D" uid="uid://cvuoepxljnfwc" path="res://sprites/ui/clock_outlinet.png" id="12_r6p65"]
 [ext_resource type="FontFile" uid="uid://b5xrx0bsyr1qj" path="res://Gamer.ttf" id="13_4w45t"]
+[ext_resource type="Texture2D" uid="uid://c810jp8taqujs" path="res://sprites/tiles/starts_tilemap.png" id="15_si52b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2twt"]
 atlas = ExtResource("1_w2twt")
@@ -125,6 +126,15 @@ shader_parameter/pixel_size = 1.50000002375
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fhyq"]
 size = Vector2(36, 872)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01n6w"]
+texture = ExtResource("15_si52b")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jq8tk"]
+sources/0 = SubResource("TileSetAtlasSource_01n6w")
+
 [node name="MainScene" type="Node2D" unique_id=58606181]
 script = ExtResource("1_r6p65")
 day_color = Color(0, 0.6784314, 0.9372549, 1)
@@ -153,7 +163,7 @@ position = Vector2(3.25, 3.75)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PickupArea" unique_id=1223026204]
 shape = SubResource("CircleShape2D_jq8tk")
 
-[node name="TileMap" type="TileMap" parent="." unique_id=1442067779]
+[node name="MapTilemap" type="TileMap" parent="." unique_id=1442067779]
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_3xd07")
 format = 2
@@ -167,7 +177,7 @@ offset_right = 2182.0
 offset_bottom = 1319.0
 color = Color(0, 0.6784314, 0.9372549, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2094539045]
+[node name="Clouds1" type="CPUParticles2D" parent="." unique_id=2094539045]
 position = Vector2(1904, 224)
 texture = ExtResource("4_pu3yx")
 lifetime = 40.0
@@ -179,7 +189,7 @@ scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_gubc5")
 color_ramp = SubResource("Gradient_pu3yx")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=299010265]
+[node name="Clouds2" type="CPUParticles2D" parent="." unique_id=299010265]
 position = Vector2(-794, 119)
 texture = ExtResource("4_pu3yx")
 lifetime = 40.0
@@ -278,3 +288,10 @@ vertical_alignment = 1
 [node name="DayTimer" type="Timer" parent="." unique_id=1439161362]
 wait_time = 120.0
 autostart = true
+
+[node name="StarsTilemap" type="TileMap" parent="." unique_id=1185289807]
+z_index = -1
+scale = Vector2(5, 5)
+tile_set = SubResource("TileSet_jq8tk")
+format = 2
+layer_0/tile_data = PackedInt32Array(65549, 131072, 0, 262151, 131072, 0, 65538, 131072, 0, 65546, 65536, 0, 327681, 65536, 0, 131078, 65536, 0, 131072, 65536, 0, 262155, 0, 0, 196617, 0, 0, 6, 0, 0, 196611, 0, 0, 0, 0, 0, 196613, 0, 0, 65540, 0, 1610612736, 196621, 0, 1610612736, 7, 65536, 0, 13, 65536, 0, 327688, 0, 0, 131074, 0, 0)
