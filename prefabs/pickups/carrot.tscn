@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7f41npbyqorm"]
 
 [ext_resource type="Texture2D" uid="uid://66lqh8y2wqxl" path="res://sprites/items/carrot_spritesheet.png" id="1_0l7le"]
+[ext_resource type="Script" uid="uid://boecna73dsb33" path="res://scripts/items/item_stats.gd" id="1_bmqkr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
 radius = 38.418743
@@ -22,6 +23,7 @@ animations = [{
 
 [node name="Carrot" type="Area2D" unique_id=1808918682 groups=["Pickup"]]
 scale = Vector2(2.5, 2.5)
+script = ExtResource("1_bmqkr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=344507631]
 scale = Vector2(0.99999994, 0.99999994)

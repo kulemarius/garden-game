@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bs4dqvk8rt72k" path="res://scripts/items/grow_handler.gd" id="1_xxfnv"]
 [ext_resource type="PackedScene" uid="uid://c7f41npbyqorm" path="res://prefabs/pickups/carrot.tscn" id="2_epore"]
 [ext_resource type="Texture2D" uid="uid://dfapq5u727yy4" path="res://sprites/env/arrow.png" id="3_v0ufq"]
-[ext_resource type="Script" uid="uid://b0iyfa4awudgo" path="res://scripts/main/item_stats.gd" id="5_2llh6"]
+[ext_resource type="Script" uid="uid://b0iyfa4awudgo" path="res://scripts/main/parent.gd" id="5_2llh6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxfnv"]
 atlas = ExtResource("1_lq47w")
