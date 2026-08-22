@@ -13,9 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://hilsymfhxyfg" path="res://sprites/ui/clock_fill.png" id="12_mngbo"]
 [ext_resource type="Texture2D" uid="uid://cvuoepxljnfwc" path="res://sprites/ui/clock_outlinet.png" id="12_r6p65"]
 [ext_resource type="FontFile" uid="uid://b5xrx0bsyr1qj" path="res://Gamer.ttf" id="13_4w45t"]
+[ext_resource type="Texture2D" uid="uid://c4xv6xa1qgcyu" path="res://sprites/ui/bar.png" id="14_6u1mn"]
+[ext_resource type="Script" uid="uid://biuo8jtiuenr0" path="res://scripts/ui/money_needed_updater.gd" id="14_7nt27"]
+[ext_resource type="Script" uid="uid://daf1wvsnpko8j" path="res://scripts/ui/current_money_updater.gd" id="14_k6f3i"]
 [ext_resource type="Texture2D" uid="uid://cbeqvla0uevwo" path="res://sprites/characters/sell_npc.png" id="15_01n6w"]
 [ext_resource type="Script" uid="uid://dnl71jnoe17vv" path="res://scripts/main/sell_handler.gd" id="15_6u1mn"]
 [ext_resource type="Texture2D" uid="uid://dvxtq7xidfaos" path="res://sprites/env/stars.png" id="15_si52b"]
+[ext_resource type="Script" uid="uid://e8nwlvvjt7ix" path="res://scripts/main/stats_handler.gd" id="18_bcnxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pu3yx"]
 texture = ExtResource("3_7ykc4")
@@ -192,6 +196,50 @@ text = "119.99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CurrentMoney" type="RichTextLabel" parent="Canvas/UI" unique_id=582503463]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 305.0
+offset_top = -303.0
+offset_right = 535.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.07741077
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("13_4w45t")
+theme_override_font_sizes/normal_font_size = 115
+bbcode_enabled = true
+text = "1,000"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("14_k6f3i")
+
+[node name="MoneyNeeded" type="Label" parent="Canvas/UI" unique_id=574485008]
+layout_mode = 0
+offset_left = 855.6667
+offset_top = 103.0
+offset_right = 1110.6667
+offset_bottom = 228.0
+rotation = 0.07741077
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("13_4w45t")
+theme_override_font_sizes/font_size = 115
+text = "1,000"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("14_7nt27")
+
+[node name="Bar" type="Sprite2D" parent="Canvas/UI" unique_id=1957892435]
+position = Vector2(986.66675, 137)
+rotation = 0.07741077
+scale = Vector2(4.1381364, 5.3696766)
+texture = ExtResource("14_6u1mn")
+
 [node name="DayTimer" type="Timer" parent="." unique_id=1439161362]
 wait_time = 120.0
 autostart = true
@@ -222,3 +270,7 @@ script = ExtResource("15_6u1mn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SellNpc/Area2D" unique_id=1521085273]
 shape = SubResource("CircleShape2D_3xd07")
+
+[node name="StatsHandler" type="Node2D" parent="." unique_id=308535068]
+script = ExtResource("18_bcnxi")
+NeededMoney = 100
