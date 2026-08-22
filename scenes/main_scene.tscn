@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://blb8i0ia7vbua" path="res://sprites/characters/player_spritesheet.png" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://dwfjvljkk27ow" path="res://sprites/tiles/grass_tilemap.png" id="3_7ykc4"]
 [ext_resource type="Texture2D" uid="uid://daox3r55rou7" path="res://sprites/env/cloud.png" id="4_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://pxldgsgvmpu7" path="res://sprites/items/carrot_seed.png" id="5_gubc5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2twt"]
 atlas = ExtResource("1_w2twt")
@@ -147,3 +148,10 @@ scale_amount_min = 4.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_gubc5")
 color_ramp = SubResource("Gradient_pu3yx")
+
+[node name="CarrotSeed" type="Area2D" parent="." unique_id=1234982066]
+position = Vector2(572.99994, 455.99997)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="CarrotSeed" unique_id=178161985]
+texture = ExtResource("5_gubc5")
