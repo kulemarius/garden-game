@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d20oflrg0jyya" path="res://scripts/main/player_movement.gd" id="1_pw63i"]
 [ext_resource type="Texture2D" uid="uid://blb8i0ia7vbua" path="res://sprites/characters/player_spritesheet.png" id="1_w2twt"]
 [ext_resource type="Texture2D" uid="uid://dwfjvljkk27ow" path="res://sprites/tiles/grass_tilemap.png" id="3_7ykc4"]
+[ext_resource type="Texture2D" uid="uid://daox3r55rou7" path="res://sprites/env/cloud.png" id="4_pu3yx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2twt"]
 atlas = ExtResource("1_w2twt")
@@ -123,3 +124,8 @@ offset_left = -20.0
 offset_right = 1160.0
 offset_bottom = 614.0
 color = Color(0, 0.6784314, 0.9372549, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2094539045]
+position = Vector2(1226, 126)
+texture = ExtResource("4_pu3yx")
+gravity = Vector2(0, 0)
