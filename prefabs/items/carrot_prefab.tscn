@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bootypa7slobw"]
+
+[ext_resource type="Texture2D" uid="uid://66lqh8y2wqxl" path="res://sprites/items/carrot_spritesheet.png" id="1_lq47w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxfnv"]
+atlas = ExtResource("1_lq47w")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ufq"]
+atlas = ExtResource("1_lq47w")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epore"]
+atlas = ExtResource("1_lq47w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2llh6"]
+atlas = ExtResource("1_lq47w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2xy2"]
+atlas = ExtResource("1_lq47w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yff66"]
+atlas = ExtResource("1_lq47w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxfnv")
+}],
+"loop": 1,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ufq")
+}],
+"loop": 1,
+"name": &"Dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epore")
+}],
+"loop": 1,
+"name": &"FinalStage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2llh6")
+}],
+"loop": 1,
+"name": &"Pickup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2xy2")
+}],
+"loop": 1,
+"name": &"Stage1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yff66")
+}],
+"loop": 1,
+"name": &"Stage2",
+"speed": 5.0
+}]
+
+[node name="CarrotPrefab" type="Node2D" unique_id=1194123282]
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96773227]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_3xd07")
+animation = &"Stage1"
+autoplay = "Stage1"
+
+[node name="Timer" type="Timer" parent="." unique_id=474560783]
