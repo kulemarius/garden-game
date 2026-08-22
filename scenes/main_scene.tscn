@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://bnehsoes3ata4"]
 
-[ext_resource type="PackedScene" uid="uid://cl3s2yiiqq53p" path="res://prefabs/player_prefab.tscn" id="1_w2twt"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_3xd07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
 
 [node name="MainScene" type="Node2D" unique_id=58606181]
-
-[node name="PlayerPrefab" parent="." unique_id=1566981882 instance=ExtResource("1_w2twt")]
-position = Vector2(511, 423)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=59539068]
 position = Vector2(528.00006, 563.00006)
