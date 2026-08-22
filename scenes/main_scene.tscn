@@ -66,6 +66,9 @@ size = Vector2(32, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
 radius = 53.500584
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k6f3i"]
+load_path = "res://.godot/imported/buy_npc.png-68be25e1ce4761c3ab044bba25f4b97e.ctex"
+
 [node name="MainScene" type="Node2D" unique_id=58606181]
 script = ExtResource("1_r6p65")
 day_color = Color(0, 0.6784314, 0.9372549, 1)
@@ -213,7 +216,6 @@ rotation = 0.07741077
 theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("13_4w45t")
 theme_override_font_sizes/normal_font_size = 115
-bbcode_enabled = true
 text = "1,000"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -274,3 +276,9 @@ shape = SubResource("CircleShape2D_3xd07")
 [node name="StatsHandler" type="Node2D" parent="." unique_id=308535068]
 script = ExtResource("18_bcnxi")
 NeededMoney = 100
+
+[node name="BuyNpc" type="StaticBody2D" parent="." unique_id=378500300]
+
+[node name="Sprite2D" type="Sprite2D" parent="BuyNpc" unique_id=1922091821]
+texture = SubResource("CompressedTexture2D_k6f3i")
+flip_h = true
