@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://dnl71jnoe17vv" path="res://scripts/main/sell_handler.gd" id="15_6u1mn"]
 [ext_resource type="Texture2D" uid="uid://dvxtq7xidfaos" path="res://sprites/env/stars.png" id="15_si52b"]
 [ext_resource type="Script" uid="uid://e8nwlvvjt7ix" path="res://scripts/main/stats_handler.gd" id="18_bcnxi"]
+[ext_resource type="Texture2D" uid="uid://dabugf1vgetlt" path="res://sprites/characters/buy_npc.png" id="21_xdqt8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pu3yx"]
 texture = ExtResource("3_7ykc4")
@@ -66,8 +67,11 @@ size = Vector2(32, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
 radius = 53.500584
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k6f3i"]
-load_path = "res://.godot/imported/buy_npc.png-68be25e1ce4761c3ab044bba25f4b97e.ctex"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbtc"]
+size = Vector2(32, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwbtc"]
+radius = 51.0392
 
 [node name="MainScene" type="Node2D" unique_id=58606181]
 script = ExtResource("1_r6p65")
@@ -75,7 +79,7 @@ day_color = Color(0, 0.6784314, 0.9372549, 1)
 night_color = Color(0.09019608, 0.1882353, 0.32156864, 1)
 
 [node name="Player" parent="." unique_id=1920010704 instance=ExtResource("2_r6p65")]
-position = Vector2(319, 448)
+position = Vector2(481, 448)
 
 [node name="MapTilemap" type="TileMap" parent="." unique_id=1442067779]
 scale = Vector2(3, 3)
@@ -278,7 +282,17 @@ script = ExtResource("18_bcnxi")
 NeededMoney = 100
 
 [node name="BuyNpc" type="StaticBody2D" parent="." unique_id=378500300]
+position = Vector2(109, 412)
+scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="BuyNpc" unique_id=1922091821]
-texture = SubResource("CompressedTexture2D_k6f3i")
-flip_h = true
+texture = ExtResource("21_xdqt8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuyNpc" unique_id=1936301094]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_dwbtc")
+
+[node name="Area2D" type="Area2D" parent="BuyNpc" unique_id=978513687]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuyNpc/Area2D" unique_id=1177030537]
+shape = SubResource("CircleShape2D_dwbtc")
