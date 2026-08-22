@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dnl71jnoe17vv" path="res://scripts/main/sell_handler.gd" id="15_6u1mn"]
 [ext_resource type="Texture2D" uid="uid://dvxtq7xidfaos" path="res://sprites/env/stars.png" id="15_si52b"]
 [ext_resource type="Texture2D" uid="uid://d18ds1kxtcf5x" path="res://sprites/ui/shop_background.png" id="17_58gk3"]
+[ext_resource type="Script" uid="uid://bexslhy3nfryy" path="res://scripts/ui/buy_handler.gd" id="17_k67gn"]
 [ext_resource type="Script" uid="uid://e8nwlvvjt7ix" path="res://scripts/main/stats_handler.gd" id="18_bcnxi"]
 [ext_resource type="Texture2D" uid="uid://b1fqtycuu2dlq" path="res://sprites/ui/buy_button.png" id="18_k67gn"]
 [ext_resource type="Texture2D" uid="uid://cfgij05ap7mf3" path="res://sprites/ui/buy_sign.png" id="18_to7gp"]
@@ -255,6 +256,36 @@ rotation = 0.07741077
 scale = Vector2(4.1381364, 5.3696766)
 texture = ExtResource("14_6u1mn")
 
+[node name="Keybind" type="Label" parent="Canvas/UI" unique_id=171838716]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 31.634317
+offset_right = 298.0
+offset_bottom = 88.634315
+rotation = -0.07833943
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("13_4w45t")
+theme_override_font_sizes/font_size = 53
+text = "\"E\" - Pickup"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keybind2" type="Label" parent="Canvas/UI" unique_id=218040023]
+layout_mode = 0
+offset_left = -2.000001
+offset_top = 85.00001
+offset_right = 300.0
+offset_bottom = 142.0
+rotation = -0.07833943
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("13_4w45t")
+theme_override_font_sizes/font_size = 53
+text = "\"R\" - Plant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Shop" type="Control" parent="Canvas" unique_id=86542994]
 visible = false
 layout_mode = 3
@@ -330,7 +361,7 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_constants/outline_size = 11
 theme_override_fonts/font = ExtResource("13_4w45t")
 theme_override_font_sizes/font_size = 27
-text = "10-25$"
+text = "10-30$"
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Canvas/Shop/Carrot/NinePatchRect" unique_id=54503394]
@@ -345,6 +376,9 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_jq8tk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6fhyq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6fhyq")
+script = ExtResource("17_k67gn")
+price = 10
+Prefab = ExtResource("5_6p3nn")
 
 [node name="Label" type="Label" parent="Canvas/Shop/Carrot/NinePatchRect/Button" unique_id=990954222]
 layout_mode = 1
@@ -475,6 +509,7 @@ vertical_alignment = 1
 [node name="SeedSpawer" type="Node2D" parent="." unique_id=16221777]
 position = Vector2(588, 455)
 
+[connection signal="pressed" from="Canvas/Shop/Carrot/NinePatchRect/Button" to="Canvas/Shop/Carrot/NinePatchRect/Button" method="_on_pressed"]
 [connection signal="body_entered" from="SellNpc/Area2D" to="SellNpc/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="SellNpc/Area2D" to="SellNpc/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="BuyNpc/Area2D" to="BuyNpc/Area2D" method="_on_body_entered"]

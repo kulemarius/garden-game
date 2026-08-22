@@ -24,6 +24,7 @@ animations = [{
 [node name="Carrot" type="Area2D" unique_id=1808918682 groups=["Pickup"]]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_bmqkr")
+maxWorth = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=344507631]
 scale = Vector2(0.99999994, 0.99999994)

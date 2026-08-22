@@ -1,11 +1,15 @@
 extends Button
 
+@export var price = 0
+@export var Prefab: PackedScene
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var stats = $"../../../../../StatsHandler"
+@onready var seedSpawner = $"../../../../../SeedSpawer"
 
+func _on_pressed() -> void:
+	if stats.CurrentMoney >= price:
+		stats.CurrentMoney -= price
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		var seed = Prefab.instantiate()
+		seedSpawner.add_child(seed)
+		seed.position = Vector2.ZERO
