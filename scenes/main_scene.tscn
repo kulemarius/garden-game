@@ -95,6 +95,14 @@ texture = ExtResource("3_7ykc4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pu3yx")
 
+[sub_resource type="Curve" id="Curve_gubc5"]
+_data = [Vector2(0.031914897, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_pu3yx"]
+offsets = PackedFloat32Array(0.39506173, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="MainScene" type="Node2D" unique_id=58606181]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=721381934]
@@ -126,6 +134,13 @@ offset_bottom = 614.0
 color = Color(0, 0.6784314, 0.9372549, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2094539045]
-position = Vector2(1226, 126)
+position = Vector2(1230, 9)
 texture = ExtResource("4_pu3yx")
-gravity = Vector2(0, 0)
+lifetime = 30.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 177.425)
+gravity = Vector2(-10, 0)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_gubc5")
+color_ramp = SubResource("Gradient_pu3yx")
