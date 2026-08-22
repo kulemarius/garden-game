@@ -120,6 +120,9 @@ frame_progress = 0.2712684
 position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_jq8tk")
 
+[node name="Hand" type="Node2D" parent="Player" unique_id=397490635]
+position = Vector2(3.25, 3.75)
+
 [node name="TileMap" type="TileMap" parent="." unique_id=1442067779]
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_3xd07")
@@ -134,7 +137,7 @@ offset_bottom = 614.0
 color = Color(0, 0.6784314, 0.9372549, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2094539045]
-position = Vector2(1230, 9)
+position = Vector2(1219, 93)
 texture = ExtResource("4_pu3yx")
 lifetime = 30.0
 emission_shape = 3
