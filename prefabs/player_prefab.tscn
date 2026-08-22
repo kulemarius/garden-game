@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cl3s2yiiqq53p"]
+
+[ext_resource type="Texture2D" uid="uid://blb8i0ia7vbua" path="res://sprites/characters/player_spritesheet.png" id="1_2am2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f35xb"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtmlq"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0qab"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plrjv"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8a6w"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea84x"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c5yi"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2yx8"]
+atlas = ExtResource("1_2am2i")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f35xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtmlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0qab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plrjv")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8a6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea84x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c5yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2yx8")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[node name="PlayerPrefab" type="CharacterBody2D" unique_id=1566981882]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=361587286]
+sprite_frames = SubResource("SpriteFrames_3xd07")
+animation = &"Walk"
+frame_progress = 0.43457866
