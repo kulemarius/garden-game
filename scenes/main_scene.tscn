@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://hilsymfhxyfg" path="res://sprites/ui/clock_fill.png" id="12_mngbo"]
 [ext_resource type="Texture2D" uid="uid://cvuoepxljnfwc" path="res://sprites/ui/clock_outlinet.png" id="12_r6p65"]
 [ext_resource type="FontFile" uid="uid://b5xrx0bsyr1qj" path="res://Gamer.ttf" id="13_4w45t"]
+[ext_resource type="Texture2D" uid="uid://dvxtq7xidfaos" path="res://sprites/env/stars.png" id="15_si52b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2twt"]
 atlas = ExtResource("1_w2twt")
@@ -124,6 +125,10 @@ shader_parameter/pixel_size = 1.50000002375
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fhyq"]
 size = Vector2(36, 872)
+
+[sub_resource type="Curve" id="Curve_3xd07"]
+_data = [Vector2(0, 0.23595512), 0.0, 0.0, 0, 0, Vector2(0.2761905, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5617978), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="MainScene" type="Node2D" unique_id=58606181]
 script = ExtResource("1_r6p65")
@@ -278,3 +283,13 @@ vertical_alignment = 1
 [node name="DayTimer" type="Timer" parent="." unique_id=1439161362]
 wait_time = 120.0
 autostart = true
+
+[node name="Stars" type="CPUParticles2D" parent="." unique_id=1112598886]
+position = Vector2(575, 177)
+texture = ExtResource("15_si52b")
+lifetime = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(571.395, 221.795)
+gravity = Vector2(0, 0)
+scale_amount_max = 8.1
+scale_amount_curve = SubResource("Curve_3xd07")
