@@ -12,7 +12,7 @@
 [ext_resource type="Shader" uid="uid://b1xqil3sw72u0" path="res://shaders/pixel_shader.gdshader" id="10_6wevv"]
 [ext_resource type="Texture2D" uid="uid://dwt1738awi5al" path="res://sprites/ui/clock_outline.png" id="11_e1cbu"]
 [ext_resource type="Texture2D" uid="uid://hilsymfhxyfg" path="res://sprites/ui/clock_fill.png" id="12_mngbo"]
-[ext_resource type="FontFile" uid="uid://byha0gt48e28r" path="res://FredokaOne-Regular.ttf" id="13_4w45t"]
+[ext_resource type="FontFile" uid="uid://b5xrx0bsyr1qj" path="res://Gamer.ttf" id="13_4w45t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2twt"]
 atlas = ExtResource("1_w2twt")
@@ -250,6 +250,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("12_mngbo")
 
 [node name="TimeleftLabel" type="Label" parent="Canvas/UI" unique_id=528692798]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -262,9 +263,10 @@ offset_right = 45.5
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/outline_size = 22
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = -120
 theme_override_fonts/font = ExtResource("13_4w45t")
-theme_override_font_sizes/font_size = 66
+theme_override_font_sizes/font_size = 107
 text = "119"
 horizontal_alignment = 1
 vertical_alignment = 1
