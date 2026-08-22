@@ -1,11 +1,26 @@
 extends StaticBody2D
 
+@onready var area2d = $Area2D
+@onready var hold_system = $"../ItemHandler"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _process(_delta):
+	if Input.is_action_just_pressed("Sell"):
+		sell()
 
+func sell():
+	if hold_system.equippedItem == null:
+		return
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	var item = hold_system.equippedItem
+
+	if not "minWorth" in item or not "maxWorth" in item:
+		print("This item can't be sold!")
+		return
+
+	var worth = randi_range(item.minWorth, item.maxWorth)
+
+	print("Sold item for $", worth)
+
+	item.queue_free()
+	hold_system.equippedItem = null
+	hold_system.nearbyItem = null

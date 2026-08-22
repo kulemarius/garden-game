@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cvuoepxljnfwc" path="res://sprites/ui/clock_outlinet.png" id="12_r6p65"]
 [ext_resource type="FontFile" uid="uid://b5xrx0bsyr1qj" path="res://Gamer.ttf" id="13_4w45t"]
 [ext_resource type="Texture2D" uid="uid://cbeqvla0uevwo" path="res://sprites/characters/sell_npc.png" id="15_01n6w"]
+[ext_resource type="Script" uid="uid://dnl71jnoe17vv" path="res://scripts/main/sell_handler.gd" id="15_6u1mn"]
 [ext_resource type="Texture2D" uid="uid://dvxtq7xidfaos" path="res://sprites/env/stars.png" id="15_si52b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pu3yx"]
@@ -208,6 +209,7 @@ scale_amount_curve = SubResource("Curve_3xd07")
 [node name="SellNpc" type="StaticBody2D" parent="." unique_id=1467089720]
 position = Vector2(1065, 413)
 scale = Vector2(4, 4)
+script = ExtResource("15_6u1mn")
 
 [node name="Sprite2D" type="Sprite2D" parent="SellNpc" unique_id=570125164]
 texture = ExtResource("15_01n6w")
