@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://hilsymfhxyfg" path="res://sprites/ui/clock_fill.png" id="12_mngbo"]
 [ext_resource type="Texture2D" uid="uid://cvuoepxljnfwc" path="res://sprites/ui/clock_outlinet.png" id="12_r6p65"]
 [ext_resource type="FontFile" uid="uid://b5xrx0bsyr1qj" path="res://Gamer.ttf" id="13_4w45t"]
-[ext_resource type="Texture2D" uid="uid://c810jp8taqujs" path="res://sprites/tiles/starts_tilemap.png" id="15_si52b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2twt"]
 atlas = ExtResource("1_w2twt")
@@ -125,15 +124,6 @@ shader_parameter/pixel_size = 1.50000002375
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fhyq"]
 size = Vector2(36, 872)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_01n6w"]
-texture = ExtResource("15_si52b")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_jq8tk"]
-sources/0 = SubResource("TileSetAtlasSource_01n6w")
 
 [node name="MainScene" type="Node2D" unique_id=58606181]
 script = ExtResource("1_r6p65")
@@ -288,11 +278,3 @@ vertical_alignment = 1
 [node name="DayTimer" type="Timer" parent="." unique_id=1439161362]
 wait_time = 120.0
 autostart = true
-
-[node name="StarsTilemap" type="TileMap" parent="." unique_id=1185289807]
-modulate = Color(1, 1, 1, 0)
-z_index = -1
-scale = Vector2(5, 5)
-tile_set = SubResource("TileSet_jq8tk")
-format = 2
-layer_0/tile_data = PackedInt32Array(65549, 131072, 0, 262151, 131072, 0, 65538, 131072, 0, 65546, 65536, 0, 327681, 65536, 0, 131078, 65536, 0, 131072, 65536, 0, 262155, 0, 0, 196617, 0, 0, 6, 0, 0, 196611, 0, 0, 0, 0, 0, 196613, 0, 0, 65540, 0, 1610612736, 196621, 0, 1610612736, 7, 65536, 0, 13, 65536, 0, 327688, 0, 0, 131074, 0, 0)
