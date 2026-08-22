@@ -5,6 +5,11 @@ extends Node
 
 var equippedItem = null
 var nearbyItem = null
+var hover_time = 0.0
+
+const HOVER_HEIGHT = 3.0
+const HOVER_SPEED = 3.0
+const ITEM_TILT = 5.0
 
 func _ready():
 	pickup_area.area_entered.connect(_on_pickup_area_entered)
@@ -12,7 +17,14 @@ func _ready():
 
 func _process(delta):
 	if equippedItem:
-		equippedItem.global_position = hand.global_position
+		hover_time += delta * HOVER_SPEED
+		
+		equippedItem.global_position = hand.global_position + Vector2(
+			0,
+			sin(hover_time) * HOVER_HEIGHT
+		)
+		
+		equippedItem.rotation = deg_to_rad(ITEM_TILT)
 
 	if Input.is_action_just_pressed("Pickup"):
 		pickup()
@@ -54,12 +66,14 @@ func pickup():
 				if pickup_item:
 					equippedItem = pickup_item
 					nearbyItem = null
+					hover_time = 0.0
 
 				return
 
 		if area.is_in_group("Pickup"):
 			equippedItem = area
 			nearbyItem = null
+			hover_time = 0.0
 			return
 
 func drop():
@@ -72,6 +86,7 @@ func drop():
 	nearbyItem = null
 
 	item.global_position = hand.global_position
+	item.rotation = 0
 
 func plant():
 	if not equippedItem:
