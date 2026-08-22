@@ -1,11 +1,20 @@
 extends Area2D
 
+@export var control_to_show: Control
+@onready var label = $"../Label"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var player_inside = false
 
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		player_inside = true
+		label.visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_exited(body):
+	if body.is_in_group("Player"):
+		player_inside = false
+		label.visible = false
+
+func _process(_delta):
+	if player_inside and Input.is_action_just_pressed("OpenShop"):
+		control_to_show.visible = true

@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var hold_system = $"../../ItemHandler"
 @onready var money = $"../../StatsHandler"
+@onready var label = $"../Label"
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Sell"):
@@ -28,3 +29,12 @@ func sell():
 
 	hold_system.equippedItem = null
 	hold_system.nearbyItem = null
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		label.visible = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		label.visible = false

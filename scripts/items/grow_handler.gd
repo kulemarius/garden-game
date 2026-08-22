@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var grow_timer = $GrowTimer
+@onready var label = $Label
 
 var current_stage := 1
 var can_harvest := false
@@ -26,6 +27,7 @@ func _on_grow_timer_timeout():
 		grow_timer.start(grow_time)
 	else:
 		sprite.play("FinalStage")
+		label.visible = true
 		can_harvest = true
 
 func harvest():

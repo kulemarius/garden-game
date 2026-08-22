@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cgfu6srxfc5gy"]
+
+[ext_resource type="Script" uid="uid://d34lgflx52vuy" path="res://scripts/items/carrot_seed.gd" id="1_x3yqc"]
+[ext_resource type="PackedScene" uid="uid://bootypa7slobw" path="res://prefabs/items/carrot_prefab.tscn" id="2_fewrm"]
+[ext_resource type="Texture2D" uid="uid://pxldgsgvmpu7" path="res://sprites/items/carrot_seed.png" id="3_h0fue"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6fhyq"]
+
+[node name="CarrotSeed" type="Area2D" unique_id=1964592265 groups=["Pickup", "Seed"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_x3yqc")
+plant_scene = ExtResource("2_fewrm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=320756131]
+texture = ExtResource("3_h0fue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=621906466]
+shape = SubResource("CircleShape2D_6fhyq")
