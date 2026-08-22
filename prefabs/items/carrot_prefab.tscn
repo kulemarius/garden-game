@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bootypa7slobw"]
 
 [ext_resource type="Texture2D" uid="uid://66lqh8y2wqxl" path="res://sprites/items/carrot_spritesheet.png" id="1_lq47w"]
+[ext_resource type="Script" uid="uid://bs4dqvk8rt72k" path="res://scripts/items/grow_handler.gd" id="1_xxfnv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xxfnv"]
 atlas = ExtResource("1_lq47w")
@@ -78,10 +79,11 @@ animations = [{
 }]
 
 [node name="CarrotPrefab" type="Node2D" unique_id=1194123282]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
+script = ExtResource("1_xxfnv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96773227]
-position = Vector2(0, -3)
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_3xd07")
 animation = &"Stage1"
 autoplay = "Stage1"

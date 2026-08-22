@@ -26,6 +26,10 @@ func _process(delta):
 		plant()
 
 func _on_pickup_area_entered(area):
+	if area.is_in_group("Plant"):
+		nearbyItem = area
+		return
+
 	if area.is_in_group("Pickup"):
 		nearbyItem = area
 
@@ -37,14 +41,25 @@ func pickup():
 	if equippedItem:
 		return
 
-	if nearbyItem:
+	if not nearbyItem:
+		return
+
+	if nearbyItem.is_in_group("Plant"):
+		var pickup = nearbyItem.harvest()
+
+		if pickup:
+			equippedItem = pickup
+
+		return
+
+	if nearbyItem.is_in_group("Pickup"):
 		equippedItem = nearbyItem
 
 func drop():
 	if not equippedItem or not canDrop:
 		return
 
-	equippedItem.global_position = hand.global_position + Vector2(0, 30)
+	equippedItem.global_position = hand.global_position
 	equippedItem = null
 
 func plant():
